@@ -21,6 +21,13 @@ Route::post('crop-image', ['as'=>'croppie.upload-image','uses'=>'ImageCropContro
 
 Route::get('posts', 'PostController@index');
 
+
+Route::get('file-upload', ['as'=>'file.upload','uses'=>'PostController@fileUpload']);
+Route::post('file-upload', ['as'=>'post.file.upload','uses'=>'PostController@postFileUpload']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('gray-scale-image', 'ImageController@grayScaleImage');
+Route::post('gray-scale-image',['as'=>'gray.scale.image','uses'=>'ImageController@grayScaleImagePost']);
